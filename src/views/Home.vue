@@ -6,33 +6,43 @@
         'url(' + require('../assets/Scenes/scene' + count + '.png') + ')',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      transition: 'background-image 0.2s ease-in-out'
+      transition: 'background-image 0.2s ease-in-out',
     }"
   >
     <div class="container">
       <div class="left-container">
         <div class="score-blocks-left">
-          <h1 class="game-over" :style="{ color: 'black' }">Score: {{ finalscore }}</h1>
+          <h1 class="game-over" :style="{ color: 'black' }">
+            Score: {{ finalscore }}
+          </h1>
           <div class="reset-container">
-            <button @click="resetgame(2)" v-if="!gameover && count!==99">Reset</button>
+            <button @click="resetgame(2)" v-if="!gameover && count !== 99">
+              Reset
+            </button>
           </div>
           <h1 v-if="gameover && count !== 99" class="game-over">Game Over!</h1>
         </div>
       </div>
       <div class="right-container">
         <div class="score-blocks">
-          <h1 class="game-over" :style="{ color: 'black' }">Score: {{ finalscore }}</h1>
+          <h1 class="game-over" :style="{ color: 'black' }">
+            Score: {{ finalscore }}
+          </h1>
           <div class="reset-container">
-            <button @click="resetgame(2)" v-if="!gameover && count!==99">Reset</button>
+            <button @click="resetgame(2)" v-if="!gameover && count !== 99">
+              Reset
+            </button>
           </div>
           <h1 v-if="gameover && count !== 99" class="game-over">Game Over!</h1>
         </div>
         <div v-if="!gameover" class="right-blocks">
           <div class="category">Guess the {{ category }}</div>
           <div class="text-value">
-            <div :style="{width:'10%'}" v-for="item in textArray">
+            <div :style="{ width: '10%' }" v-for="item in textArray">
               <div class="text-item">
-                <div :style="[setTextStyle(item)]" class="text-block">{{ item }}</div>
+                <div :style="[setTextStyle(item)]" class="text-block">
+                  {{ item }}
+                </div>
               </div>
             </div>
           </div>
@@ -56,13 +66,17 @@
             <button class="facebook">
               <ShareNetwork
                 network="facebook"
-                url="https://shreygeekyants.github.io/shreygeekyants.fleptile.github.io/"
+                url="https://shreygeekyants.github.io/hangman/"
                 title="Hangman - A Vue.js implementation by Shrey"
                 :quote="getMessage()"
                 hashtags="ShreyIsAwesome"
               >
                 <div class="button-element">
-                  <vue-fontawesome icon="facebook" size="2" color="white"></vue-fontawesome>
+                  <vue-fontawesome
+                    icon="facebook"
+                    size="2"
+                    color="white"
+                  ></vue-fontawesome>
                 </div>
               </ShareNetwork>
             </button>
@@ -70,11 +84,15 @@
               <ShareNetwork
                 title="Hangman - A Vue.js implementation by Shrey"
                 network="whatsapp"
-                url="https://shreygeekyants.github.io/shreygeekyants.fleptile.github.io/"
+                url="https://shreygeekyants.github.io/hangman"
                 :description="getMessage()"
               >
                 <div class="button-element">
-                  <vue-fontawesome icon="whatsapp" size="2" color="white"></vue-fontawesome>
+                  <vue-fontawesome
+                    icon="whatsapp"
+                    size="2"
+                    color="white"
+                  ></vue-fontawesome>
                 </div>
               </ShareNetwork>
             </button>
@@ -101,13 +119,13 @@ export default {
       selectedCharacters: [],
       count: 0,
       gameover: false,
-      nextround: false
+      nextround: false,
     };
   },
   computed: {
     finalscore() {
       return get(this.$store, "state.score", 0);
-    }
+    },
   },
   beforeDestroy() {
     if (this.gameover) {
@@ -173,8 +191,8 @@ export default {
       this.gameover = true;
     },
     checkVictoryCondition() {
-      let allPresent = this.textArray.every(item =>
-        this.selectedCharacters.includes(item)
+      let allPresent = this.textArray.every((item) =>
+        this.selectedCharacters.includes(item),
       );
       if (allPresent) {
         this.updateScore();
@@ -183,11 +201,11 @@ export default {
     },
     splitText(text) {
       this.textArray = text.split("");
-    }
+    },
   },
   components: {
-    KeyboardComponent
-  }
+    KeyboardComponent,
+  },
 };
 </script>
 <style>

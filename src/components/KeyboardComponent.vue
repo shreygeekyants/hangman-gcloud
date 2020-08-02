@@ -1,11 +1,17 @@
 <template>
   <div class="keyboard-layout">
-    <div class="keyboard-button-container" v-for="button in keyboardButtons" :key="button.key">
+    <div
+      class="keyboard-button-container"
+      v-for="button in keyboardButtons"
+      :key="button.key"
+    >
       <div
         :style="generateStyles(button.value)"
         @click="addCharacterToList(button.value)"
         class="keyboard-button"
-      >{{button.value}}</div>
+      >
+        {{ button.value }}
+      </div>
     </div>
   </div>
 </template>
@@ -17,7 +23,7 @@ export default {
   props: ["addCharacterToList", "selectedCharacters", "textArray"],
   data() {
     return {
-      keyboardButtons
+      keyboardButtons,
     };
   },
   methods: {
@@ -29,7 +35,7 @@ export default {
         return {
           backgroundColor: "#23bf1b",
           color: "white",
-          pointerEvents: "none"
+          pointerEvents: "none",
         };
       }
       if (
@@ -39,11 +45,11 @@ export default {
         return {
           backgroundColor: "red",
           color: "white",
-          pointerEvents: "none"
+          pointerEvents: "none",
         };
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
