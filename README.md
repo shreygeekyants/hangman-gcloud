@@ -1,4 +1,8 @@
-# hangman
+# Hangman
+
+## Demo
+
+![FlepTile Demo](src/demo/hangman-demo.gif)
 
 ## Project setup
 ```

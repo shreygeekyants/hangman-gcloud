@@ -117,7 +117,6 @@ export default {
   mounted() {
     this.generateCategory();
     this.splitText(this.textValue);
-    console.log(this.textValue, "*** khv");
   },
 
   methods: {
