@@ -6,6 +6,7 @@
         'url(' + require('../assets/Scenes/scene' + count + '.png') + ')',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
+      transition: 'background-image 0.2s ease-in-out'
     }"
   >
     <div class="container">
@@ -29,7 +30,7 @@
         <div v-if="!gameover" class="right-blocks">
           <div class="category">Guess the {{ category }}</div>
           <div class="text-value">
-            <div :style="{width:'10%'}" v-for="item in textArray" :key="item">
+            <div :style="{width:'10%'}" v-for="item in textArray">
               <div class="text-item">
                 <div :style="[setTextStyle(item)]" class="text-block">{{ item }}</div>
               </div>
@@ -61,7 +62,7 @@
                 hashtags="ShreyIsAwesome"
               >
                 <div class="button-element">
-                  <vue-fontawesome icon="facebook" size="1" color="white"></vue-fontawesome>
+                  <vue-fontawesome icon="facebook" size="2" color="white"></vue-fontawesome>
                 </div>
               </ShareNetwork>
             </button>
@@ -73,7 +74,7 @@
                 :description="getMessage()"
               >
                 <div class="button-element">
-                  <vue-fontawesome icon="whatsapp" size="1" color="white"></vue-fontawesome>
+                  <vue-fontawesome icon="whatsapp" size="2" color="white"></vue-fontawesome>
                 </div>
               </ShareNetwork>
             </button>

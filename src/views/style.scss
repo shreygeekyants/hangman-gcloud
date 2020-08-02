@@ -23,6 +23,8 @@
 .button-element {
   display: flex;
   align-items: center;
+  width: inherit;
+  height: inherit;
 }
 .text-item {
   border-bottom: solid 2px black;
