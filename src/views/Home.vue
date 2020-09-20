@@ -38,7 +38,7 @@
         <div v-if="!gameover" class="right-blocks">
           <div class="category">Guess the {{ category }}</div>
           <div class="text-value">
-            <div :style="{ width: '10%' }" v-for="item in textArray">
+            <div :style="{ width: '10%' }" v-for="item in textArray" :key="item">
               <div class="text-item">
                 <div :style="[setTextStyle(item)]" class="text-block">
                   {{ item }}
